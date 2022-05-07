@@ -1,0 +1,111 @@
+@mixin row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.container {
+  @include column;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: aqua;
+  .underline {
+    border: 1px solid rgba(143, 133, 133, 0.5);
+  }
+}
+.main-header {
+  @include row;
+  min-height: 15vh;
+  background-color: white;
+  div {
+    @include column;
+    min-width: 30%;
+  }
+  .contacts {
+    span {
+      font-size: 1.3rem;
+    }
+    .call {
+      color: red;
+    }
+    .location {
+      color: red;
+    }
+  }
+}
+.content {
+  @include row;
+  background-color: white;
+}
+
+.main-content {
+  @include column;
+  max-width: 40%;
+  padding: 2rem 0;
+  .contact-form {
+    min-width: fit-content;
+    gap: 1rem;
+
+    .info-inputs {
+      width: 100%;
+      @include row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    [type="text"] {
+      width: 50%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      color: rgb(70, 194, 70);
+    }
+    textarea {
+      resize: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      padding: 1rem 0 0 1rem;
+    }
+    .send {
+      max-width: fit-content;
+      padding: 10px 15px;
+      font-size: 1rem;
+      color: white;
+      background-color: rgb(155, 8, 8);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}
+.aside-content {
+  @include column;
+  .social-icons {
+    span {
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .fb {
+      color: rgb(31, 31, 148);
+    }
+    .tw {
+      color: rgb(70, 124, 187);
+    }
+    .ln {
+      color: rgb(40, 40, 209);
+    }
+    .gt {
+      color: rgb(10, 10, 10);
+    }
+  }
+}
